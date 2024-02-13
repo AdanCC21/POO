@@ -29,3 +29,4 @@ void Persona::makereir(int motivo){
         cout <<":|"<<endl;
     }
 }
+

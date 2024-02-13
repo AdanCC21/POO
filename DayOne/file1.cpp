@@ -15,4 +15,15 @@ int main()
    Persona la_persona; //Es como un struct pa
     /*En este punto del programa ya existe un objeto del clase persona en la memoria*/
     
+    /*Hay lago llamado constructores que especifica que parametros debe de etener una variable de algun tipo de clase
+    Ej la perdona Con el constructor podriamos declarar que necesita tener de base una edad y nombre, puede haber mas de un constructor
+    pueden llamarse igual lo que los hara diferente sera si recibe parametros y cuales, dependiendo los parametros que reciba o enviemos
+    sera el constructor que se ejecutara*/
+
+    /*En c++ podemos usar el mismo nombre para las funciones siempre y cuando se diferencien por los parametros*/
+
+    la_persona.saludar();
+    la_persona.reir();
+
+    
 }
