@@ -1,16 +1,8 @@
-#pragma once
-class Persona {
-public:
-    char nombre[50];
-    int edad;
-    create();
-};
-
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
-
+#include "Persona.h"
 
 using std::cout;
 using std::endl;
