@@ -9,4 +9,6 @@ int main()
 {
     srand(time(NULL));
     Persona p1;
+    p1=p1.crear();
+    p1.saludar(p1);
 }

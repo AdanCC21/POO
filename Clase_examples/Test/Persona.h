@@ -1,31 +1,30 @@
 #pragma once
-class Persona {
+class Persona{
 public:
-    char nombre[50];
     int edad;
-    create();
+    char name[20];
+    Persona crear();
+    void saludar(Persona per);
+
 };
 
 #include <iostream>
-#include <string.h>
-#include <stdlib.h>
-#include <time.h>
 
+#include <stdlib.h>
+#include <string.h>
 
 using std::cout;
 using std::endl;
 
-//Constructor
-Persona::create()
+Persona Persona::crear()
 {
-    int edad=rand()%(30-0+1)-0;
-    char name[20];
-    strcpy(nombre,name);
-
+    Persona p1;
+    strcpy(p1.name,"adan");
+    p1.edad=20;
+    return p1;
 }
 
-void Persona::Presentar(char nombre[],int edad)
+void Persona::saludar(Persona per)
 {
-    cout << "Hola soy" << nombre << "Y tengo " << edad << endl;
-    
+    cout << "HOLA, Me llamo " << per.name << " y tengo "<< per.edad<< " anios" << endl;
 }
