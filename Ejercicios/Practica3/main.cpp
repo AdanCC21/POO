@@ -18,6 +18,4 @@ int main()
     // for (int n : a)
     //     cout<< n <<" ";
     // cout<<endl;
-
-
 }
