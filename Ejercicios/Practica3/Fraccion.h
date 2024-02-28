@@ -6,3 +6,12 @@
 #include <stdlib.h>
 
 #pragma once
+class Fraccion{
+public:
+    Fraccion juntar(int x,int y);
+};
+
+Fraccion Fraccion::juntar(int x, int y)
+{
+    
+}

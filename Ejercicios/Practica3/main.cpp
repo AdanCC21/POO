@@ -7,6 +7,7 @@
 #include <stdlib.h>
 
 #include "libad.h"
+#include "Fraccion.h"
 
 using std::cout;
 using std::endl;
