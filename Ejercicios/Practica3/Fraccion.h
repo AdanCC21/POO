@@ -8,10 +8,15 @@
 #pragma once
 class Fraccion{
 public:
-    Fraccion juntar(int x,int y);
+    int x,y;
+    Fraccion operator+(Fraccion y);
 };
+Fraccion operator+(Fraccion y);
 
-Fraccion Fraccion::juntar(int x, int y)
+Fraccion Fraccion::operator+(Fraccion y)
 {
-    
+    int suma,suma1;
+    suma =this->x + y.y;
+    suma1=this->y + y.x;
+    suma = suma+suma1;
 }
