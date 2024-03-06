@@ -1,15 +1,18 @@
 #pragma once
+/*Hacemos uso de un template a la clase*/
+template<class T>
 class Pila{
 
     struct nodo{
-        int dato = 0;
+        T dato;
         struct nodo *prev= nullptr;//Lo mismo que null solo que NULL es igual a 0
     };
-
     struct nodo *top=nullptr;
+    
 public:
-    void push (int dato);
-    int pop();
+    void push (T dato);
+    T pop();
+    T Peek();
     bool IsEmpty(){if(top==nullptr)return true;else return false;}
     ~Pila();//Destructor
 };
@@ -19,7 +22,8 @@ using std::cout;
 using std::endl;
 
 //destructor
-Pila::~Pila()
+template<class T>
+Pila<T>::~Pila()
 {
     struct nodo* temp;
     while(top!=nullptr)
@@ -30,26 +34,42 @@ Pila::~Pila()
     }
 }
 
-void Pila:: push (int dato)
+template<class T>
+void Pila<T>:: push (T dato)
 {
     struct nodo *newnodo = new struct nodo; //Asigno memoria
+    if(newnodo==nullptr)
+    {
+        throw "memoria llena:(";
+    }
     newnodo->dato=dato;
     newnodo->prev=top;
     top=newnodo;
 }
-
-int Pila::pop()
+template<class T>
+T Pila<T>::Peek()
 {
     if(top==nullptr)
     {
-        cout << "Pila vacia pa"<< endl;
-        return 0;
+        throw "Pila vacia papu";
     }
     else
     {
-        struct nodo*temp = top;
+        return top->dato;
+    }
+}
+template<class T>
+T Pila<T>::pop()
+{
+    if(top==nullptr)
+    {
+        throw "Pila Vacia pa";
+    }
+    else
+    {
+        auto*temp = top;
         top=temp->prev;
-        int val=temp->dato;
+        T val=temp->dato;
         delete temp;
         return val;
     }

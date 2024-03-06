@@ -6,7 +6,7 @@ using std::endl;
 
 int main()
 {
-    Pila pila;
+    Pila<int> pila;
     pila.push(9);
     pila.push(20);
     pila.push(1);
@@ -15,6 +15,19 @@ int main()
     cout<<"Elementos de la pila"<<endl;
     while(pila.IsEmpty()==false)
     {
-        cout<<" "<< pila.pop()<<endl; 
+        cout<<" "<< pila.pop(); 
     }
+    cout<<endl;
+
+    Pila<double>pila2;
+    pila2.push(1.5);
+    pila2.push(1.5);
+    pila2.push(1.5);
+    pila2.push(1.5);
+    pila2.push(1.6);
+    cout<<"Segunda pila"<<endl;
+    while(!pila2.IsEmpty()){
+        cout<<" "<<pila2.pop();
+    }
+
 }
