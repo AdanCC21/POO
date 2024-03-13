@@ -4,7 +4,9 @@
 #include <iostream>
 #include <string.h>
 #include <string>
-#include <stack>
+#include <stack>//Pilas
+#include <queue>//Colas
+
 
 using std::cout;
 using std::endl;
