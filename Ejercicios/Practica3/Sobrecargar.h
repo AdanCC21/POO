@@ -1,7 +1,9 @@
 #pragma once
-#include <string>
+#define _CRT_SECURE_NO_WARNINGS
+#include "Sobrecargar.h"
 #include <iostream>
-#include <ostream>
+#include <string>
+#include <sstream>
 
 using std::string;
 using std::ostream;
@@ -16,8 +18,6 @@ public:
 	Sobrecargar();
 	Sobrecargar(string fra);
 
-
-	//Aqui se sobrecarga los operadores
 	Sobrecargar operator+(Sobrecargar fra);
 	Sobrecargar operator-(Sobrecargar fra);
 	Sobrecargar operator*(Sobrecargar fra);
@@ -33,7 +33,6 @@ public:
 #include <string>
 #include <sstream>
 
-using std::string;
 
 string remove_space(string str) {
 	string ret;
@@ -62,7 +61,6 @@ Sobrecargar::Sobrecargar(string fra) {
 	denominador = std::to_string(den);
 }
 
-//Funcion que sobrecarga el operador + para hacer la suma de fracciones
 Sobrecargar Sobrecargar::operator+(Sobrecargar fra) {
 	Sobrecargar resultado;
 	resultado.numerador = "(" + numerador + "*" + fra.denominador + "+" + denominador + "*" + fra.numerador + ")";
@@ -70,7 +68,6 @@ Sobrecargar Sobrecargar::operator+(Sobrecargar fra) {
 	return resultado;
 }
 
-//Funcion que sobrecarga el operador - para hacer la resta de fracciones
 Sobrecargar Sobrecargar::operator-(Sobrecargar fra) {
 	Sobrecargar resultado;
 	resultado.numerador = "(" + numerador + "*" + fra.denominador + "-" + denominador + "*" + fra.numerador + ")";
@@ -78,7 +75,6 @@ Sobrecargar Sobrecargar::operator-(Sobrecargar fra) {
 	return resultado;
 }
 
-//Funcion que sobrecarga el operador * para hacer la multiplicacion de fracciones
 Sobrecargar Sobrecargar::operator*(Sobrecargar fra) {
 	Sobrecargar resultado;
 	resultado.numerador = numerador + "*" + fra.numerador;
@@ -86,7 +82,6 @@ Sobrecargar Sobrecargar::operator*(Sobrecargar fra) {
 	return resultado;
 }
 
-//Funcion que sobrecarga el operador / para hacer la division de fracciones
 Sobrecargar Sobrecargar::operator/(Sobrecargar fra) {
 	Sobrecargar resultado;
 	resultado.numerador = numerador + "*" + fra.denominador;
@@ -94,7 +89,6 @@ Sobrecargar Sobrecargar::operator/(Sobrecargar fra) {
 	return resultado;
 }
 
-//Funcion que sobrecarga el operador = para hacer la asignacion de fracciones
 Sobrecargar Sobrecargar::operator=(Sobrecargar fra)
 {
 	numerador = fra.numerador;
