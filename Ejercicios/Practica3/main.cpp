@@ -9,16 +9,17 @@ using std::endl;
 using std::string;
 using std::istringstream;
 
-string remove_space(string str);
 
 int main()
 {
-    string f = "1 / 2";
-    Sobrecargar f1 = f;
-    string cadena = "3 / 4";
+    //Var
     int num, den;
     char o;
-    cadena = remove_space(cadena);
+    string f = "3 / 6";
+    Sobrecargar f1 = f;
+    //Removemos los espacios de la cadena
+    string cadena = "4 / 8";
+    cadena = space(cadena);
     istringstream in(cadena);
     in >> num >> o >> den;
     Sobrecargar f2 = cadena;

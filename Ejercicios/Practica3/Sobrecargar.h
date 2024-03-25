@@ -24,7 +24,6 @@ public:
 	Sobrecargar operator/(Sobrecargar fra);
 	Sobrecargar operator=(Sobrecargar fra);
 	Sobrecargar operator<<(Sobrecargar fra);
-
 };
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -34,7 +33,7 @@ public:
 #include <sstream>
 
 
-string remove_space(string str) {
+string space(string str) {
 	string ret;
 	for (char c : str) {
 		if (c != ' ') {
@@ -54,7 +53,7 @@ Sobrecargar::Sobrecargar(){
 Sobrecargar::Sobrecargar(string fra) {
 	int num, den;
 	char o;
-	fra = remove_space(fra);
+	fra = space(fra);
 	std::istringstream in(fra);
 	in >> num >> o >> den;
 	numerador = std::to_string(num);
