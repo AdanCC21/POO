@@ -12,12 +12,16 @@ class Persona{
 private:
     string name;
     int edad;
+protected:
+    string cuenta;
 public:
     Persona();
     Persona(string name, int edad);
     string getName();
     int getEdad();
+    void saludar();
 };
+
 
 Persona::Persona(string _name, int _edad)
 {
@@ -33,4 +37,10 @@ string Persona::getName()
 int Persona::getEdad()
 {
     return edad;
+}
+
+void Persona::saludar()
+{
+    cout<< "Hola, me llamo "<< this->name<<endl;
+    cout<< "y tengo "<<this->edad;
 }
