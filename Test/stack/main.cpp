@@ -7,6 +7,23 @@
 #include <stack>//Pilas
 #include <queue>//Colas
 
+//Pilas
+//Colas, Colas dobles y Colas de prioridad
+
+//Cola,back()sabemos quein es el final
+//cola.front sabes quien esta enfrente
+//cola.size()
+//cola.push()
+//Cola.empty()
+//Cola.front()
+//Cola.pop saca el de alfrente
+
+//cola.emplece es lo mismo que push, pero sin crear una copia, push crea una copia y la envia
+//cola.push_back
+//cola.push_front
+
+using namespace std;
+
 
 using std::cout;
 using std::endl;
@@ -16,6 +33,22 @@ using std::string;
 
 void stack1();
 void stack2();
+void stack4(){
+    deque<int> cola;
+    bool alt=true;
+    int n;
+    while(true)
+    {
+        cout<<"Dame un numero(-1 para salir)"<<endl;
+        cin>>n;
+        if(n==-1)
+        {
+            break;
+        }
+        cola.push_back(n);
+    }
+    
+}
 
 int main()
 {
