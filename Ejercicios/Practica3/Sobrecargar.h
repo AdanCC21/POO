@@ -1,7 +1,9 @@
 #pragma once
-#include <string>
+#define _CRT_SECURE_NO_WARNINGS
+#include "Sobrecargar.h"
 #include <iostream>
-#include <ostream>
+#include <string>
+#include <sstream>
 
 using std::string;
 using std::ostream;
@@ -16,15 +18,12 @@ public:
 	Sobrecargar();
 	Sobrecargar(string fra);
 
-
-	//Aqui se sobrecarga los operadores
 	Sobrecargar operator+(Sobrecargar fra);
 	Sobrecargar operator-(Sobrecargar fra);
 	Sobrecargar operator*(Sobrecargar fra);
 	Sobrecargar operator/(Sobrecargar fra);
 	Sobrecargar operator=(Sobrecargar fra);
 	Sobrecargar operator<<(Sobrecargar fra);
-
 };
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -33,9 +32,8 @@ public:
 #include <string>
 #include <sstream>
 
-using std::string;
 
-string remove_space(string str) {
+string space(string str) {
 	string ret;
 	for (char c : str) {
 		if (c != ' ') {
@@ -55,14 +53,13 @@ Sobrecargar::Sobrecargar(){
 Sobrecargar::Sobrecargar(string fra) {
 	int num, den;
 	char o;
-	fra = remove_space(fra);
+	fra = space(fra);
 	std::istringstream in(fra);
 	in >> num >> o >> den;
 	numerador = std::to_string(num);
 	denominador = std::to_string(den);
 }
 
-//Funcion que sobrecarga el operador + para hacer la suma de fracciones
 Sobrecargar Sobrecargar::operator+(Sobrecargar fra) {
 	Sobrecargar resultado;
 	resultado.numerador = "(" + numerador + "*" + fra.denominador + "+" + denominador + "*" + fra.numerador + ")";
@@ -70,7 +67,6 @@ Sobrecargar Sobrecargar::operator+(Sobrecargar fra) {
 	return resultado;
 }
 
-//Funcion que sobrecarga el operador - para hacer la resta de fracciones
 Sobrecargar Sobrecargar::operator-(Sobrecargar fra) {
 	Sobrecargar resultado;
 	resultado.numerador = "(" + numerador + "*" + fra.denominador + "-" + denominador + "*" + fra.numerador + ")";
@@ -78,7 +74,6 @@ Sobrecargar Sobrecargar::operator-(Sobrecargar fra) {
 	return resultado;
 }
 
-//Funcion que sobrecarga el operador * para hacer la multiplicacion de fracciones
 Sobrecargar Sobrecargar::operator*(Sobrecargar fra) {
 	Sobrecargar resultado;
 	resultado.numerador = numerador + "*" + fra.numerador;
@@ -86,7 +81,6 @@ Sobrecargar Sobrecargar::operator*(Sobrecargar fra) {
 	return resultado;
 }
 
-//Funcion que sobrecarga el operador / para hacer la division de fracciones
 Sobrecargar Sobrecargar::operator/(Sobrecargar fra) {
 	Sobrecargar resultado;
 	resultado.numerador = numerador + "*" + fra.denominador;
@@ -94,7 +88,6 @@ Sobrecargar Sobrecargar::operator/(Sobrecargar fra) {
 	return resultado;
 }
 
-//Funcion que sobrecarga el operador = para hacer la asignacion de fracciones
 Sobrecargar Sobrecargar::operator=(Sobrecargar fra)
 {
 	numerador = fra.numerador;
