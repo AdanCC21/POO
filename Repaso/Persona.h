@@ -1,46 +1,36 @@
-#pragma once
-
-#include <iostream>
-#include <string>
-
-using std::string;
-using std::cout;
-using std::cin;
-using std::endl;
-
 class Persona{
-private:
-    string name;
-    int edad;
-protected:
-    string cuenta;
 public:
     Persona();
-    Persona(string name, int edad);
-    string getName();
-    int getEdad();
-    void saludar();
+    Persona(char nombre[], int edadd);
+    void priDatos();
+    // ~Persona();
+private:
+    char name[30];
+    int edad;
 };
 
+#include <iostream>
+#include <cstring>
 
-Persona::Persona(string _name, int _edad)
-{
-    name=_name;
-    edad=_edad;
+using std::cout;
+using std::endl;
+
+Persona::Persona(){
+    strcpy(name,"Juan");
+    edad=18;
 }
 
-string Persona::getName()
-{
-    return name;   
+Persona::Persona(char nombre[],int edad){
+    strcpy(name,nombre);
+    this->edad=edad;
 }
 
-int Persona::getEdad()
-{
-    return edad;
+void Persona::priDatos(){
+    cout << "Nombre " << this->name<<endl;
+    cout << "Edad " << this->edad<<endl;
 }
 
-void Persona::saludar()
-{
-    cout<< "Hola, me llamo "<< this->name<<endl;
-    cout<< "y tengo "<<this->edad;
-}
+// Persona::~Persona()
+// {
+//     cout<<"Destructor";
+// }

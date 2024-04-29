@@ -7,8 +7,6 @@ protected:
     int edad = 18;
 
     std::string nombre; // el nombre lo manejaremos con cadena de c++
-    // void Reir() const;  // Un metodo const no puede modificar atributos
-    // void Comer() const;
 
 public:
     // Constructores
@@ -32,36 +30,6 @@ public:
 #include <string.h>
 using std::cout;
 using std::endl;
-
-// void Persona::Reir() const
-// {
-//     cout << "Jajajaja" << endl;
-// }
-
-// void Persona::Comer() const
-// {
-//     cout << "Nom, nom, nom...." << endl;
-// }
-
-// void Persona::HacerReir(int motivo) const
-// {
-//     if ((motivo % 3) == 0)
-//     {
-//         Reir();
-//     }
-//     else
-//         cout << ":|" << endl;
-// }
-
-/*
-Persona::~Persona()
-{
-    if (nombre != nullptr) {
-
-        cout << "Ejecutando destructor de " << nombre << "..." << endl;
-        free(nombre);
-    }
-}*/
 
 Persona::Persona()
 {
