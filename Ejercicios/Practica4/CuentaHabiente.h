@@ -1,6 +1,7 @@
 #pragma once
 
-#include "main.cpp"
+#include "Banco.h"
+#include "CuentaCheques.h"
 
 // Propietario de la cuenta
 // Almacenadas en un mapa cuya clave  sera el numero y el valor sera el apuntador al objeto de tipo cuentahabiente
@@ -12,13 +13,28 @@ public:
     string nombre;
     string curp;
 
+    vector<CuentaCheques*> cuentas;
+
     // Quien es el cuentahabiente, ya sea por numero o especificando el objeto de tipo cuentahabeinte del propietario.
-    CuentaHabiente();
+    CuentaHabiente(string name, string curp, int numero);
+    void agregarCuenta(CuentaCheques* cuenta);
 
     int ObtenerCuenta();
     void ImprimirReporte();
 
 };
+
+CuentaHabiente::CuentaHabiente(string name, string curp, int numero){
+    this->nombre=name;
+    this->curp=curp;
+    this->numero=numero;
+}
+
+void CuentaHabiente::agregarCuenta(CuentaCheques* cuenta){
+    cuentas.push_back(cuenta);
+}
+
+
 
 
 //Ejemplo
