@@ -23,6 +23,7 @@ using std::vector;
 #include "CuentaCheques.h"
 
 class Banco{
+public:
     string name;
     int ch_cont; //Contador consecutivo de las cuentas creadas
     int chc_cont; //Contador consecutivo de las cuentas creadas
@@ -31,8 +32,18 @@ class Banco{
     map<int, CuentaHabiente*>usuarios;
 
     Banco();
-    CuentaCheques* createCuentaCheques();
+    CuentaCheques* createCuentaCheques(CuentaHabiente* pers);
     CuentaHabiente* createCuentaHabiente(string name, string curp, int numero);
+
+    void ObtenerCuentas(CuentaHabiente* pers);
+    void ObtenerCuentaHabiente(int num);
+    void ImprimirReporte(CuentaHabiente* pers);
+
+    void Depositar(CuentaCheques* destiny, int amount);
+    void Retirar(CuentaCheques* destiny, int amount);
+    void Transferir(CuentaCheques* base,CuentaCheques* destiny, int amount);
+
+
 };
 
 Banco::Banco()
@@ -45,16 +56,39 @@ Banco::Banco()
 CuentaHabiente* Banco::createCuentaHabiente(string name, string curp, int numero){
     ch_cont++;
     auto *cuenta = new CuentaHabiente(name,curp,numero);
-    usuarios[ch_cont]=cuenta;
+    usuarios[numero]=cuenta;
     return cuenta;
 }
 
-CuentaCheques* Banco::createCuentaCheques(){
+CuentaCheques* Banco::createCuentaCheques(CuentaHabiente* pers){
     chc_cont++;
     auto *cuenta = new CuentaCheques();
-    // Agregar cunta al usuario
+    pers->agregarCuenta(cuenta);
     cuentas[chc_cont]=cuenta;
-
     return cuenta;
 }
 
+// Estas 2 pues se obtienen con las 2 funciones de arriba ----
+void Banco::ObtenerCuentaHabiente(int num){
+    cout<<"Usuario :"<<this->usuarios[num]->nombre<<" Curp: "<< this->usuarios[num]->curp<<" Numero: "<< this->usuarios[num]->numero<<endl;
+}
+
+void Banco::ObtenerCuentas(CuentaHabiente* pers){
+    pers->ObtenerCuentas();
+}
+// ---------
+void Banco::ImprimirReporte(CuentaHabiente* pers){
+    pers->ImprimirReporte();
+}
+
+void Banco::Depositar(CuentaCheques* destiny, int amount){
+    destiny->Depositar(amount);
+}
+
+void Banco::Retirar(CuentaCheques* destiny, int amount){
+    destiny->Retirar(amount);
+}
+
+void Banco::Transferir(CuentaCheques* base,CuentaCheques* destiny, int amount){
+    base->Transferir(destiny,amount);
+}
